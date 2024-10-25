@@ -7,8 +7,10 @@ func TestIsValid(t *testing.T) {
 		got  string
 		want bool
 	}{
-		{"", true},
-		{"", false},
+		{"(){}[]", true},
+		{"({[]})", true},
+		{"({[}))", false},
+		{"]", false},
 	}
 
 	for i, test := range tests {
